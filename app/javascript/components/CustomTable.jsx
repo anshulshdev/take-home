@@ -71,20 +71,14 @@ export default class CustomTable extends Component {
     const { asc, sortBy } = this.state;
     if (sortBy === column) {
       // update asc
-      this.setState({ asc: !asc }, () => {
-        this.getUsers();
-      });
+      this.setState({ asc: !asc }, this.getUsers);
     } else {
-      this.setState({ sortBy: column }, () => {
-        this.getUsers();
-      });
+      this.setState({ sortBy: column }, this.getUsers);
     }
   };
 
   setPage = pageNumber => {
-    this.setState({ page: pageNumber }, () => {
-      this.getUsers();
-    });
+    this.setState({ page: pageNumber }, this.getUsers);
   };
 
   render() {
